@@ -166,8 +166,7 @@
       align-items: flex-start;
     }
     @media (min-width: 851px) {
-      .cw-slide[data-index="0"] .cw-text-wrap,
-      .cw-slide[data-index="6"] .cw-text-wrap {
+      .cw-slide[data-index="0"] .cw-text-wrap {
         max-width: 56%;
       }
     }
@@ -320,6 +319,10 @@
       transition: all 0.2s ease;
       font-family: inherit;
       white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .cw-btn-primary {
       background: linear-gradient(140deg, #ffffff, #f3e9d8);
@@ -355,86 +358,6 @@
     }
     .cw-check { display: flex; align-items: center; gap: 5px; }
 
-    /* === MINI CARDS (slide 1) === */
-    .cw-mini-cards {
-      position: absolute;
-      right: clamp(16px, 3vw, 36px);
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: clamp(170px, 22vw, 230px);
-      pointer-events: none;
-    }
-    .cw-mini-card {
-      background: rgba(255,255,255,0.96);
-      color: #333;
-      border-radius: 12px;
-      padding: 11px 13px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.22);
-      font-size: 11px;
-    }
-    .cw-mini-card:nth-child(2) { transform: translateX(-14px); }
-    .cw-mini-card-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 4px;
-    }
-    .cw-mini-card-label { font-size: 10px; color: #888; font-weight: 500; }
-    .cw-mini-card-value { font-size: 15px; font-weight: 800; color: #2E7D32; letter-spacing: -0.01em; }
-    .cw-bar {
-      height: 6px;
-      background: #e8e2da;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-top: 4px;
-    }
-    .cw-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #43a047, #2E7D32);
-      border-radius: 3px;
-      width: 65%;
-    }
-
-    /* === CHAT BUBBLE (slide 7) === */
-    .cw-chat-bubble {
-      position: absolute;
-      right: clamp(12px, 3vw, 28px);
-      bottom: clamp(14px, 3vw, 28px);
-      background: rgba(255,255,255,0.97);
-      color: #333;
-      border-radius: 16px;
-      padding: 14px;
-      width: clamp(180px, 24vw, 215px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.28);
-      font-size: 11.5px;
-      line-height: 1.5;
-      pointer-events: none;
-    }
-    .cw-chat-header {
-      display: flex; align-items: center; justify-content: space-between;
-      font-weight: 700;
-      margin-bottom: 7px;
-      color: #7a4423;
-      font-size: 11px;
-    }
-    .cw-chat-btn {
-      background: linear-gradient(140deg, #f0b429, #d4a017);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-top: 8px;
-      width: 100%;
-      cursor: pointer;
-      font-family: inherit;
-      box-shadow: 0 3px 8px rgba(212,160,23,0.4);
-      transition: transform 0.2s ease;
-    }
-    .cw-chat-btn:active { transform: scale(0.97); }
-
     /* === RESPONSIVE MOBILE & TABLET === */
     @media (max-width: 850px) {
       html, body { padding: 0; align-items: stretch; }
@@ -446,30 +369,6 @@
 
       .cw-features-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 16px; }
       .cw-feature-card { padding: 13px 15px; }
-
-      /* SOLUCIÓN AL SOLAPAMIENTO DEL SLIDE 1 */
-      .cw-mini-cards {
-        position: relative;
-        right: auto; top: auto; transform: none;
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 26px;
-        pointer-events: all;
-      }
-      .cw-mini-card { flex: 1 1 150px; }
-      .cw-mini-card:nth-child(2) { transform: none; }
-
-      /* SOLUCIÓN AL SOLAPAMIENTO DEL SLIDE 7 */
-      .cw-chat-bubble {
-        position: relative;
-        right: auto; bottom: auto;
-        width: 100%;
-        max-width: 360px;
-        margin-top: 26px;
-        pointer-events: all;
-      }
 
       .cw-cta-row { gap: 8px; }
       .cw-btn { padding: 11px 14px; flex: 1; text-align: center; }
@@ -522,8 +421,8 @@
           <span class="cw-highlight">Automatiza tu gestión</span> y enfócate en lo que más importa: crecer.
         </div>
         <div class="cw-cta-row">
-          <button class="cw-btn cw-btn-primary">☕ Crear Cuenta Gratis</button>
-          <button class="cw-btn cw-btn-ghost">▶ Ver Demo</button>
+          <a class="cw-btn cw-btn-primary" href="https://wa.me/573232109620" target="_blank" rel="noopener">☕ Crear Cuenta Gratis</a>
+          <a class="cw-btn cw-btn-ghost" href="https://demoscweb.com/coffeeWallet/" target="_blank" rel="noopener">▶ Ver Demo</a>
         </div>
         <div class="cw-checks">
           <span class="cw-check">✅ Sin tarjeta de crédito</span>
@@ -533,64 +432,108 @@
 
 
     </div>
-    <!-- Slide 2: Inventario y POS -->
+    <!-- Slide 2: Inventarios -->
     <div class="cw-slide" data-index="1">
-      <div class="cw-tag">📦 Inventario Inteligente</div>
-      <div class="cw-slide-title">Inventario y Punto de Venta</div>
+      <div class="cw-tag">📦 Inventarios</div>
+      <div class="cw-slide-title">Inventario Inteligente</div>
       <div class="cw-slide-desc">
-        Módulo de ventas rápido con stock siempre al día. Configura
-        <span class="cw-highlight">alertas personalizadas</span> que te avisan cuando las existencias están por agotarse.
+        Controla productos e insumos en tiempo real. Con las
+        <span class="cw-highlight">composiciones</span>, al vender un producto terminado
+        el sistema descuenta automáticamente los insumos asociados.
+      </div>
+      <div class="cw-features-grid">
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">🧩</div>
+          <div class="cw-feature-title">Composiciones</div>
+          <div class="cw-feature-desc">Cada venta descuenta insumos como empaques o bolsas.</div>
+        </div>
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">🔄</div>
+          <div class="cw-feature-title">Siempre al Día</div>
+          <div class="cw-feature-desc">Cada movimiento actualiza tus existencias al instante.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Ventas -->
+    <div class="cw-slide" data-index="2">
+      <div class="cw-tag">🛒 Ventas</div>
+      <div class="cw-slide-title">Punto de Venta Rápido</div>
+      <div class="cw-slide-desc">
+        Registra ventas en <span class="cw-highlight">segundos desde tu teléfono</span>,
+        con una interfaz pensada para el ritmo del día a día.
       </div>
       <div class="cw-features-grid">
         <div class="cw-feature-card">
           <div class="cw-feature-icon">⚡</div>
-          <div class="cw-feature-title">Ventas Rápidas</div>
-          <div class="cw-feature-desc">Procesa pedidos en segundos desde cualquier dispositivo móvil.</div>
+          <div class="cw-feature-title">Venta en Segundos</div>
+          <div class="cw-feature-desc">Procesa pedidos rápido desde cualquier dispositivo.</div>
         </div>
         <div class="cw-feature-card">
-          <div class="cw-feature-icon">🔔</div>
-          <div class="cw-feature-title">Alertas de Stock</div>
-          <div class="cw-feature-desc">Notificaciones cuando un producto está por agotarse.</div>
+          <div class="cw-feature-icon">📱</div>
+          <div class="cw-feature-title">100% Móvil</div>
+          <div class="cw-feature-desc">Vende desde tu smartphone sin instalar nada.</div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 3: Composiciones -->
-    <div class="cw-slide" data-index="2">
-      <div class="cw-tag">🧩 Productos Complejos</div>
-      <div class="cw-slide-title">Composiciones de Producto</div>
+    <!-- Slide 4: Gastos -->
+    <div class="cw-slide" data-index="3">
+      <div class="cw-tag">💸 Gastos</div>
+      <div class="cw-slide-title">Registro de Gastos y Compras</div>
       <div class="cw-slide-desc">
-        Función clave para negocios que <span class="cw-highlight">transforman materia prima</span>.
-        Al vender una bolsa de café, el sistema descuenta automáticamente los insumos individuales.
+        Anota compras y costos operativos para conocer tus
+        <span class="cw-highlight">ganancias reales</span>, no solo tus ventas.
       </div>
       <div class="cw-features-grid">
         <div class="cw-feature-card">
-          <div class="cw-feature-icon">🔄</div>
-          <div class="cw-feature-title">Descuento Automático</div>
-          <div class="cw-feature-desc">Cada venta actualiza el stock de insumos en tiempo real.</div>
+          <div class="cw-feature-icon">🧾</div>
+          <div class="cw-feature-title">Compras Registradas</div>
+          <div class="cw-feature-desc">Cada compra actualiza inventario y gastos a la vez.</div>
         </div>
         <div class="cw-feature-card">
-          <div class="cw-feature-icon">📋</div>
-          <div class="cw-feature-title">Recetas Configurables</div>
-          <div class="cw-feature-desc">Define qué materias primas componen cada producto final.</div>
+          <div class="cw-feature-icon">📉</div>
+          <div class="cw-feature-title">Ganancia Real</div>
+          <div class="cw-feature-desc">Ventas menos gastos, sin cálculos manuales.</div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 4: Billeteras -->
-    <div class="cw-slide" data-index="3">
-      <div class="cw-tag">💰 Múltiples Billeteras</div>
-      <div class="cw-slide-title">Manejo de Múltiples Billeteras</div>
+    <!-- Slide 5: Stock -->
+    <div class="cw-slide" data-index="4">
+      <div class="cw-tag">⚠️ Stock</div>
+      <div class="cw-slide-title">Nunca te Quedes sin Inventario</div>
       <div class="cw-slide-desc">
-        Olvídate de una sola caja. Crea billeteras como
-        <span class="cw-highlight">efectivo, Nequi o Daviplata</span>.
-        Decide a qué billetera entra el dinero de cada venta.
+        Define límites mínimos por producto y recibe
+        <span class="cw-highlight">alertas automáticas</span> cuando un artículo esté por agotarse.
+      </div>
+      <div class="cw-features-grid">
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">🔔</div>
+          <div class="cw-feature-title">Alertas de Stock Bajo</div>
+          <div class="cw-feature-desc">Avisos visuales en tu panel al llegar al mínimo.</div>
+        </div>
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">🛡️</div>
+          <div class="cw-feature-title">Sin Quiebres</div>
+          <div class="cw-feature-desc">Prevén faltantes antes de que afecten tus ventas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Relación con el bolsillo -->
+    <div class="cw-slide" data-index="5">
+      <div class="cw-tag">💰 Tu Bolsillo</div>
+      <div class="cw-slide-title">Relación Directa con tu Bolsillo</div>
+      <div class="cw-slide-desc">
+        Crea billeteras como <span class="cw-highlight">efectivo, Nequi o Daviplata</span>
+        y decide a dónde entra el dinero de cada venta.
       </div>
       <div class="cw-features-grid">
         <div class="cw-feature-card">
           <div class="cw-feature-icon">💵</div>
           <div class="cw-feature-title">Efectivo + Digital</div>
-          <div class="cw-feature-desc">Controla todas tus fuentes de ingreso en un solo lugar.</div>
+          <div class="cw-feature-desc">Todas tus fuentes de ingreso en un solo lugar.</div>
         </div>
         <div class="cw-feature-card">
           <div class="cw-feature-icon">↔️</div>
@@ -600,96 +543,46 @@
       </div>
     </div>
 
-    <!-- Slide 5: Dashboard -->
-    <div class="cw-slide" data-index="4">
-      <div class="cw-tag">📊 Analítica</div>
-      <div class="cw-slide-title">Panel de Control y Reportes</div>
+    <!-- Slide 7: Cartera -->
+    <div class="cw-slide" data-index="6">
+      <div class="cw-tag">🤝 Cartera</div>
+      <div class="cw-slide-title">Control de Cartera y Clientes</div>
       <div class="cw-slide-desc">
-        Dashboard con resumen de <span class="cw-highlight">ventas, gastos y ganancias</span> de los últimos 7 días.
-        Exporta en PDF o CSV (Excel).
+        Lleva el registro de tus clientes y las
+        <span class="cw-highlight">cuentas pendientes</span>, para que ningún pago se te escape.
+      </div>
+      <div class="cw-features-grid">
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">👥</div>
+          <div class="cw-feature-title">Clientes Organizados</div>
+          <div class="cw-feature-desc">Historial de compras de cada cliente en un clic.</div>
+        </div>
+        <div class="cw-feature-card">
+          <div class="cw-feature-icon">⏰</div>
+          <div class="cw-feature-title">Saldos Pendientes</div>
+          <div class="cw-feature-desc">Controla fiados y cobros de un solo vistazo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Historial y estadísticas -->
+    <div class="cw-slide" data-index="7">
+      <div class="cw-tag">📊 Estadísticas</div>
+      <div class="cw-slide-title">Historial y Estadísticas</div>
+      <div class="cw-slide-desc">
+        Dashboard con <span class="cw-highlight">ventas, gastos y ganancias</span> de los últimos 7 días.
+        Exporta tu historial en PDF o CSV.
       </div>
       <div class="cw-features-grid">
         <div class="cw-feature-card">
           <div class="cw-feature-icon">📈</div>
           <div class="cw-feature-title">Métricas en Tiempo Real</div>
-          <div class="cw-feature-desc">Tendencias de ventas y rentabilidad al instante.</div>
+          <div class="cw-feature-desc">Tendencias y rentabilidad de tu negocio al instante.</div>
         </div>
         <div class="cw-feature-card">
           <div class="cw-feature-icon">📥</div>
           <div class="cw-feature-title">Exportar Datos</div>
-          <div class="cw-feature-desc">Descarga reportes en PDF o CSV para tu contador.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 6: Empleados -->
-    <div class="cw-slide" data-index="5">
-      <div class="cw-tag">👥 Control de Equipo</div>
-      <div class="cw-slide-title">Gestión de Empleados</div>
-      <div class="cw-slide-desc">
-        Invita a tu equipo con <span class="cw-highlight">permisos restringidos</span>.
-        Un empleado puede procesar ventas sin acceder a datos administrativos.
-      </div>
-      <div class="cw-features-grid">
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">🛡️</div>
-          <div class="cw-feature-title">Permisos por Rol</div>
-          <div class="cw-feature-desc">Define qué puede ver y hacer cada miembro del equipo.</div>
-        </div>
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">👤</div>
-          <div class="cw-feature-title">Invitaciones Simples</div>
-          <div class="cw-feature-desc">Agrega empleados en segundos vía correo electrónico.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 7: Registro Bot -->
-    <div class="cw-slide" data-index="6">
-      <div class="cw-text-wrap">
-        <div class="cw-tag">🤖 Onboarding</div>
-        <div class="cw-slide-title">Registro Rápido con Bot</div>
-        <div class="cw-slide-desc">
-          Date de alta en <span class="cw-highlight">menos de un minuto</span> con un asistente virtual.
-          Verificación por correo con PIN de 6 dígitos. Planes Gratuito, Profesional y Empresarial.
-        </div>
-        <div class="cw-cta-row" style="margin-top:18px;">
-          <button class="cw-btn cw-btn-primary">🚀 Empezar Ahora</button>
-          <button class="cw-btn cw-btn-ghost">📄 Ver Planes</button>
-        </div>
-      </div>
-
-      
-    </div>
-
-    <!-- Slide 8: Proyección -->
-    <div class="cw-slide" data-index="7">
-      <div class="cw-tag">🌐 Ecosistema SaaS</div>
-      <div class="cw-slide-title">Proyección de la Plataforma</div>
-      <div class="cw-slide-desc">
-        CoffeeWallet es la primera de <span class="cw-highlight">tres herramientas SaaS</span> en despliegue.
-        Se complementa con software de citas y una solución para restaurantes.
-      </div>
-      <div class="cw-features-grid">
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">☕</div>
-          <div class="cw-feature-title">CoffeeWallet</div>
-          <div class="cw-feature-desc">Gestión integral para tu negocio.</div>
-        </div>
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">📅</div>
-          <div class="cw-feature-title">Software de Citas</div>
-          <div class="cw-feature-desc">Agendamiento recién lanzado.</div>
-        </div>
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">🍽️</div>
-          <div class="cw-feature-title">Restaurantes</div>
-          <div class="cw-feature-desc">Próxima solución enfocada en restaurantes.</div>
-        </div>
-        <div class="cw-feature-card">
-          <div class="cw-feature-icon">🔗</div>
-          <div class="cw-feature-title">Ecosistema Unificado</div>
-          <div class="cw-feature-desc">Tres herramientas conectadas para tu negocio.</div>
+          <div class="cw-feature-desc">Reportes en PDF o CSV listos para auditoría.</div>
         </div>
       </div>
     </div>
